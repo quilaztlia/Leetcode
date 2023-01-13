@@ -1,0 +1,17 @@
+https://www.codemag.com/Article/2009101/Interactive-Unit-Testing-with-.NET-Core-and-VS-Code
+
+https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new
+
+> dotnet new sln MySolution
+> dotnet new classlib -o LeetCode
+> dotnet new xunit -o / -n LetCodeTests
+> dotnet sln add LeetCode/LeetCode.csproj
+> dotnet sln add LeetCodeTests/LeetCodeTests.csproj
+
+**ERROR: Not detecting xUnit
+**Ctrl+Shift+P Restart Omnisharp
+**dotnet build TestProject
+**dotnet test TestProject
+
+-dotnet add reference LeetCode
+-dotnet add package package.json

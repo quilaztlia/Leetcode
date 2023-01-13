@@ -1,0 +1,50 @@
+============================================
+============================================
+
+============================================
+============================================
+
+============================================
+============================================
+
+============================================
+6290.cs
+============================================
+class Solution {
+    typedef long long ll;
+public:
+    ll maxPower(vector<int>& stations, int r, int k) {
+        int n=stations.size();
+        vector<ll> imos(n);
+        for(int i=0;i<n;i++){
+            imos[max(0,i-r)]+=stations[i];
+            if(i+r+1<n)
+                imos[i+r+1]-=stations[i];
+        }
+        vector<ll> pwr(n);
+        pwr[0]=imos[0];
+        for(int i=1;i<n;i++)
+            pwr[i]=pwr[i-1]+imos[i];
+        ll lo=*min_element(pwr.begin(),pwr.end()),hi=lo+k+1;
+        while(hi-lo>1){
+            ll mi=(lo+hi)/2;
+            fill(imos.begin(),imos.end(),0);
+            ll acc=0,cnt=0;
+            for(int i=0;i<n;i++){
+                acc+=imos[i];
+                ll dif=mi-pwr[i]-acc;
+                if(dif>0){
+                    acc+=dif;
+                    cnt+=dif;
+                    if(i+r+r+1<n)
+                        imos[i+r+r+1]-=dif;
+                }
+            }
+            if(cnt>k)
+                hi=mi;
+            else
+                lo=mi;
+        }
+        return lo;
+    }
+};

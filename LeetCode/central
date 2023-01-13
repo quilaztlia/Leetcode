@@ -1,0 +1,38 @@
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+/*******
+ * Read input from Console
+ * Use: Console.WriteLine to output your result to STDOUT.
+ * Use: Console.Error.WriteLine to output debugging information to STDERR;
+ *       
+ * ***/
+
+namespace CSharpContestProject
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {   string line;
+            while ((line = Console.ReadLine()) != null) {
+             
+             uint.TryParse(line, out uint puissance);
+            
+            for(int i=0; i<mois; i++){
+                    if(puissance % 2 == 0)
+                       puissance /= 2;
+            
+                    if(puissance % 3 == 0)
+                       puissance /= 3;
+                else
+                    puissance-=1;    
+            }
+            Console.WriteLine(puissance);
+
+            // Vous pouvez aussi effectuer votre traitement ici après avoir lu toutes les données 
+        }
+    }
+}
